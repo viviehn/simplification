@@ -13,7 +13,8 @@ dirs = list(filter(os.path.isdir, dirs))
 if display_type == 'naive':
     percentiles = [10, 25, 50]
     stcols = st.columns(len(percentiles))
-
+    for i, p in enumerate(percentiles):
+        stcols[i].header(f'{p}% of strokes')
     for d in dirs:
         for i, p in enumerate(percentiles):
             fname = d + f'/naive/pngs/{p}.png'
